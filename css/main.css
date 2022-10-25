@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-image: url(../img/bg.jpg);
+    background-position: cover;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.header__input {
+    width: 278px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    color: #fff;
+    font-size: 20px;
+    max-width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.header__button {
+    color: #fff;
+    border: 1px solid #fff;
+    background: transparent;
+    transition: 0.4s all;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    width: 100px;
+    font-weight: 500;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.header__button:hover {
+    color: #000;
+    background: #fff;
+}
+
+.airports {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    transition: 0.4s all;
+}
+
+.airports__title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+}
+
+.airports__list {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.airports__list__item {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    width: 250px;
+    /*height: 250px;*/
+    cursor: pointer;
+    transition: 0.4s all;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
+}
+
+.airports__list__name {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.airports__list__details {
+    min-height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    border-top: 1px solid #fff;
+}
+
+.airports__list__location,
+.airports__list__icao {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 20px;
+}
+
+.airports__list__location span,
+.airports__list__icao span {
+    font-weight: 300;
+    color: #fff;
+    font-size: 14px;
+}
+
+.airports__list__item:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s all;
+    box-sizing: border-box;
+    padding: 100px 15px;
+}
+
+.routes__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0px auto 12px;
+}
+
+.routes__subtitle {
+    font-size: 14px;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.overlay.hidden .routes {
+    display: none;
+}
+
+.routes {
+    width: 700px;
+    height: auto;
+    max-width: 70vh;
+    border-radius: 25px;
+    background: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.routes__scroll-wrap {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    max-height: calc(70vh - 120px);
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.routes__scroll-wrap::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.routes__scroll-wrap::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+.routes__scroll-wrap::-webkit-scrollbar-thumb {
+    background-color: #565656;
+    border-radius: 7px;
+}
+
+.overlay__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.routes__item {
+    padding: 10px 10px 10px 35px;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-size: 14px;
+    width: 100%;
+    font-weight: 500;
+}
+
+.routes__item span {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.routes__item:last-child {
+    border-bottom: 0;
+}
+
+.routes__item:before {
+    content: attr(data-route-id);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translate(0, -50%);
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        flex-direction: column;
+        padding: 20px 15px;
+        height: auto;
+    }
+    .header__button {
+        width: 278px;
+    }
+}
