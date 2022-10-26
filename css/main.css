@@ -48,6 +48,10 @@ body.locked {
     box-sizing: border-box;
 }
 
+.header__input::placeholder{
+    color: rgba(255,255,255,.5);
+}
+
 .header__button {
     color: #fff;
     border: 1px solid #fff;
